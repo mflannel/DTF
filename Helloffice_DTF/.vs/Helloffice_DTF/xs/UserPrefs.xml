@@ -1,0 +1,16 @@
+﻿<Properties StartupConfiguration="{A80DF75F-88C2-B932-663C-F0CEF8C4DDEF}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Range.cs">
+    <Files>
+      <File FileName="Assets/Scripts/PlayerMove.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/EnemyMove.cs" Line="40" Column="32" />
+      <File FileName="Assets/Scripts/Range.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
