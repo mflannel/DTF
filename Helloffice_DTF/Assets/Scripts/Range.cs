@@ -6,20 +6,23 @@ using UnityEngine;
 public class Range : MonoBehaviour
 {
     private EnemyMove parent;
+    private CircleCollider2D circle_collider;
 
-    [SerializeField]
-    public float max_see_distance = 40f;
 
     private void Start()
     {
         parent = GetComponentInParent<EnemyMove>();
+        circle_collider = GetComponent<CircleCollider2D>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player Ghost")
         {
             parent.Target = collision.transform;
+            parent.flag = true;
+            circle_collider.enabled = false;
+
         }
     }
 

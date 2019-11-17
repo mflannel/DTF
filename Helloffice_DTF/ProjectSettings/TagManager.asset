@@ -3,7 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Player Ghost
+  - Player Yellow
+  - Player Green
+  - Player Red
+  - Aim
+  - Aim Red
+  - Aim Yellow
+  - Aim Green
+  - Aim Ghost
+  - Enemy
   layers:
   - Default
   - TransparentFX

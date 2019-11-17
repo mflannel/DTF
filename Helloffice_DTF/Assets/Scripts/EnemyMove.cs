@@ -1,15 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(CapsuleCollider2D))]
 public class EnemyMove : MonoBehaviour
 {
     private Rigidbody2D enemy_body;
 
     [SerializeField]
-    private float speed_multiplier;
+    private float speed_multiplier = 6;
 
     private Transform target;
     public Transform Target
@@ -25,7 +26,10 @@ public class EnemyMove : MonoBehaviour
         }
     }
 
+    public bool flag = false;
+
     private Vector2 movement;
+    //private CapsuleCollider2D capsule_collider;
 
     private void Awake()
     {
@@ -35,7 +39,7 @@ public class EnemyMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //target = GameObject.FindGameObjectWithTag("Player").transform;
+        target = null;
     }
 
 
@@ -43,8 +47,11 @@ public class EnemyMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        movement = target.position - transform.position;
-        movement.Normalize();
+        if (target != null)
+        {
+            movement = target.position - transform.position;
+            movement.Normalize();
+        }
     }
 
     void FixedUpdate()
@@ -56,8 +63,23 @@ public class EnemyMove : MonoBehaviour
     {
         if (target != null)
         {
+            //capsule_collider.enabled = true;
             enemy_body.MovePosition((Vector2)transform.position + (direction * speed_multiplier * Time.deltaTime));
         }
+    }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        if (flag && (collision.tag == "Player Yellow" || collision.tag == "Player Red"
+        || collision.tag == "Player Green" || collision.tag == "Player Ghost"))
+        {
+            LevelRestart();
+        }
+    }
+
+    void LevelRestart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
